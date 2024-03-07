@@ -1,0 +1,38 @@
+controller_manager:
+  ros_parameters:
+    update_rate: 30
+    use_sim_time: true
+
+    diff_cont:
+      type: diff_drive_controller/DiffDriveController
+
+    joint_broad:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+  diff_cont:
+    ros_parameters:
+      publish_rate: 50
+      base_frame_id: base_link
+
+      left_wheel_names: ['left_wheel_joint']
+      right_wheel_names: ['right_wheel_joint']
+      wheel_separation: 0.444
+      wheel_radius: 0.08
+
+      use_stamped_vel: false
+
+
+  # # Publish all joint states -----------------------------------
+  # joint_state_controller:
+  #   type: joint_state_controller/JointStateController
+  #   publish_rate: 50  
+
+  # # Position Controllers ---------------------------------------
+  # joint1_position_controller:
+  #   type: effort_controllers/JointPositionController
+  #   joint: joint1
+  #   pid: {p: 100.0, i: 0.01, d: 10.0}
+  # joint2_position_controller:
+  #   type: effort_controllers/JointPositionController
+  #   joint: joint2
+  #   pid: {p: 100.0, i: 0.01, d: 10.0}
