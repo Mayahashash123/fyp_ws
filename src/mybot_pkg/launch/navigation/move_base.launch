@@ -1,9 +1,9 @@
-<launch>
-  <!-- Arguments -->
+<!-- <launch>
+
   <arg name="cmd_vel_topic" default="/cmd_vel" />
   <arg name="odom_topic" default="odom" />
 
-  <!-- move_base -->
+  
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
     <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
     
@@ -12,7 +12,30 @@
     <rosparam file="$(find mybot_pkg)/param/local_costmap_params.yaml" command="load" />
     <rosparam file="$(find mybot_pkg)/param/global_costmap_params.yaml" command="load" />
     <rosparam file="$(find mybot_pkg)/param/move_base_params.yaml" command="load" />
-    <rosparam file="$(find mybot_pkg)/param/dwa_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find mybot_pkg)/param/dwa_planner/dwa_local_planner_params.yaml" command="load" />
+
+    <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
+    <remap from="odom" to="$(arg odom_topic)"/>
+  </node>
+</launch> -->
+
+<launch>
+  <arg name="cmd_vel_topic" default="/cmd_vel" />
+  <arg name="odom_topic" default="odom" />
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+    <param name="controller_frequency" value="10.0" />
+    
+    <rosparam file="$(find mybot_pkg)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find mybot_pkg)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find mybot_pkg)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find mybot_pkg)/param/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find mybot_pkg)/param/teb_planner/teb_planner_params.yaml" command="load" />
+    <rosparam file="$(find mybot_pkg)/param/global_planner.yaml" command="load" />
+    
+
+    <rosparam file="$(find mybot_pkg)/param/move_base_params.yaml" command="load" />
 
     <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
     <remap from="odom" to="$(arg odom_topic)"/>

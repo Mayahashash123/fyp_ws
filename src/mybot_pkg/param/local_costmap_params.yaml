@@ -16,12 +16,12 @@ local_costmap:
   # plugins:
   # - {name: static_layer, type: "costmap_2d::StaticLayer"}
   # - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
-  # # - {name: obstacles_layer, type: "costmap_2d::ObstacleLayer"}
+  # - {name: obstacles_layer, type: "costmap_2d::ObstacleLayer"}
 
-  # static_layer:
-  #   enabled: true
-  #   map_topic: /map
-  #   subscribe_to_updates: true
+  static_layer:
+    enabled: true
+    map_topic: /map
+    subscribe_to_updates: true
 
   # # obstacles_layer:
   # #   observation_sources: laser_scan_sensor
@@ -30,7 +30,7 @@ local_costmap:
   # inflater_layer:
   #   enabled: true
   #   cost_scaling_factor: 5.0
-  #   inflation_radius: 0.3
+  #   inflation_radius: 0.5
   
   # # obstacle_layer:
   # #   observation_sources: laser_scan_sensor

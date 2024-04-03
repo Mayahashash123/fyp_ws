@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find hls_lfcd_lds_driver)/launch/hlds_laser.launch" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mybot_pkg)/config/lidar_config.rviz" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="link1_broadcaster" args="0.25 0 0 0 0 1 0 base_link laser" />
+
+  <include file="$(find laser_filters)/examples/angle_filter_example.launch" />
+</launch>

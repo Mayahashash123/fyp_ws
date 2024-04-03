@@ -1,23 +1,24 @@
 {
-  "configurations": [
-    {
-      "browse": {
-        "databaseFilename": "${default}",
-        "limitSymbolsToIncludedHeaders": false
-      },
-      "includePath": [
-        "/opt/ros/noetic/include/**",
-        "/home/maya/fyp_ws/src/mybot_pkg/include/**",
-        "/home/maya/catkin_ws/src/turtlebot3_simulations-master/turtlebot3_fake/include/**",
-        "/home/maya/catkin_ws/src/turtlebot3_simulations-master/turtlebot3_gazebo/include/**",
-        "/usr/include/**"
-      ],
-      "name": "ROS",
-      "intelliSenseMode": "gcc-x64",
-      "compilerPath": "/usr/bin/gcc",
-      "cStandard": "gnu11",
-      "cppStandard": "c++14"
-    }
-  ],
-  "version": 4
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "${default}",
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "includePath": [
+                "/opt/ros/noetic/include/**",
+                "/home/maya/fyp_ws/src/mybot_pkg/include/**",
+                "/home/maya/catkin_ws/src/turtlebot3_simulations-master/turtlebot3_fake/include/**",
+                "/home/maya/catkin_ws/src/turtlebot3_simulations-master/turtlebot3_gazebo/include/**",
+                "/usr/include/**",
+                "${workspaceFolder}/hls_lfcd_lds_driver/include"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "c++14"
+        }
+    ],
+    "version": 4
 }

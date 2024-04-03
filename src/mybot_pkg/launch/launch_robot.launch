@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- launch rviz with urdf -->
+    <arg name="open_rviz" default="false" />
+
+    <param name="robot_description" command="xacro '$(find mybot_pkg)/urdf/LibraryBot.urdf'" />
+    <arg name="rviz_config_file" default="$(find mybot_pkg)/config/robot_config.rviz" />
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />
+
+    <!-- launch odom publisher -->
+    <include file="$(find mybot_pkg)/launch/odom_publisher.launch" />
+
+    <group if="$(arg open_rviz)">
+        <node pkg="rviz" type="rviz" name="rviz" args="-d $(arg rviz_config_file)" />
+    </group>
+
+</launch>

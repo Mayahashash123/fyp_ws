@@ -1,15 +1,15 @@
 obstacle_range: 3.0
 raytrace_range: 3.5
 
-footprint: [[-0.25, -0.25], [-0.25, 0.25], [0.25, 0.25], [0.25, -0.25]] #width and length of robot
+footprint: [[-0.3, -0.3], [-0.30, 0.30], [0.30, 0.30], [0.30, -0.30]] #width and length of robot
 #robot_radius: 0.25
 
-inflation_radius: 0.3
-cost_scaling_factor: 3.0
+inflation_radius: 0.2
+cost_scaling_factor: 10.0
 
 map_type: costmap
 observation_sources: scan
-scan: {sensor_frame: lidar_link, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+scan: {sensor_frame: lidar_link, data_type: LaserScan, topic: scan_filtered, marking: true, clearing: true}
 
 
 
