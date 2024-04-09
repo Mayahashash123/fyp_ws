@@ -1,0 +1,8 @@
+prefix=/home/maya/fyp_ws/devel
+
+Name: rtabmap_ros
+Description: Description of rtabmap_ros
+Version: 0.21.4
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

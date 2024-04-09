@@ -1,0 +1,8 @@
+prefix=/home/maya/fyp_ws/devel
+
+Name: rtabmap_launch
+Description: Description of rtabmap_launch
+Version: 0.21.4
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -14,7 +14,7 @@
         <param name="odom_topic" type="string" value="/odom" />
 
         <!-- publish rate -->
-        <param name="publish_rate" type="double" value="20.0" />
+        <param name="publish_rate" type="double" value="5.0" />
 
         <!-- print on terminal-->
         <param name="print_on_terminal" type="bool" value="$(arg print)" />

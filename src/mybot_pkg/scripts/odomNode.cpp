@@ -99,9 +99,15 @@ void odomNode::publishOdomWithTf()
     _odomTrans.transform.translation.x = this->_pose.position.x;
     _odomTrans.transform.translation.y = this->_pose.position.y;
     _odomTrans.transform.translation.z = this->_pose.position.z;
-    _odomTrans.transform.rotation = this->_pose.orientation;
+    _odomTrans.transform.rotation.x = this->_pose.orientation.x;
+    _odomTrans.transform.rotation.y = this->_pose.orientation.y;
+    _odomTrans.transform.rotation.z = this->_pose.orientation.z;
+    _odomTrans.transform.rotation.w = this->_pose.orientation.w;
 
-    this->_tf.sendTransform(_odomTrans);
+    if (_odomTrans.transform.rotation.z == 0 && _odomTrans.transform.rotation.w == 0)
+        std::cout << "------- orientation zero -------" << std::endl;
+    else
+        this->_tf.sendTransform(_odomTrans);
 
     printOnTerminal(this->_printOnTerminalFlag);
 }
@@ -111,9 +117,12 @@ void odomNode::printOnTerminal(bool printFlag)
     if (!printFlag)
         return;
 
-    system("clear");
+    // system("clear");
     // print the pose and twist on the terminal
     std::cout << "------- Print Robot Odometry -------" << std::endl;
+    std::cout << "_odomFrame" << this->_odom.header.frame_id << std::endl;
+    std::cout << "child_frame_id" << this->_odom.child_frame_id << std::endl;
+
     std::cout << "Pose: \n"
               << "\t Position: \n"
               << "\t \t x: " << this->_odom.pose.pose.position.x << "\n"
