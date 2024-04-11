@@ -11,7 +11,7 @@
   <include file="$(find mybot_pkg)/launch/navigation/amcl.launch"/>
 
   <!-- move_base -->
-  <!-- <include file="$(find mybot_pkg)/launch/navigation/move_base.launch" /> -->
+  <include file="$(find mybot_pkg)/launch/navigation/move_base.launch" />
 
   <!-- rviz -->
   <group if="$(arg open_rviz)">
