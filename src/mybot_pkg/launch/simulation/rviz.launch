@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-    <param name="robot_description" command="xacro '$(find mybot_pkg)/urdf/LibraryBot.urdf'"/>
+    <param name="robot_description" command="xacro '$(find mybot_pkg)/urdf/LibraryBot_simulation.urdf'"/>
     <arg name="rviz_config_file" default="$(find mybot_pkg)/config/robot_config.rviz"/>
 
     <!-- <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>

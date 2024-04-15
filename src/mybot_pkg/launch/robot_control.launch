@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="goal_type" default="pose" />
+    <!-- Start the robot control node -->
+    <node name="robot_node" pkg="mybot_pkg" type="robot_control_node" output="screen">
+        <param name="goal_type" value="$(arg goal_type)" />
+        <!-- name: for having bookname topic
+             pose: for subscribing to book pose -->
+        <param name="book_name_topic" value="book_name" />
+        <param name="book_pose_topic" value="book_pose" />
+    </node>
+
+    <group if="$(eval goal_type == 'name')">
+        <rosparam file="$(find mybot_pkg)/param/pose.yaml" command="load" ns="" />
+    </group>
+</launch>
