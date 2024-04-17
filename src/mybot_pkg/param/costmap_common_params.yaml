@@ -7,10 +7,13 @@ footprint: [[-0.3, -0.3], [-0.30, 0.30], [0.30, 0.30], [0.30, -0.30]] #width and
 inflation_radius: 0.1
 cost_scaling_factor: 5.0
 
+# inflation_radius: 0.2
+# cost_scaling_factor: 7.5
+
 map_type: costmap
 observation_sources: scan
-# scan: {sensor_frame: laser, data_type: LaserScan, topic: scan_filtered, marking: true, clearing: true}
-scan: {sensor_frame: laser, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+# scan: {sensor_frame: laser, data_type: LaserScan, topic: /scan, marking: true, clearing: true}
+scan: {sensor_frame: laser, data_type: LaserScan, topic: scan_filtered, marking: true, clearing: true}
 
 
 

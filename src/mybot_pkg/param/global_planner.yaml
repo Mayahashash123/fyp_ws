@@ -1,4 +1,4 @@
 GlobalPlanner:
-    use_dijkstra: false
-    use_grid_path: true
+    use_dijkstra: true
+    use_grid_path: false
     orientation_mode: 1
